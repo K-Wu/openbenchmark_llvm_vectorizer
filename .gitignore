@@ -1,0 +1,14 @@
+*.tar.gz
+*.tar.xz
+*.tgz
+*.bc
+*.ll
+*.o
+*.s
+exe
+*.zip
+mafft-7.392-without-extensions/
+hmmer-2.3.2/
+install_timedHmmerSearch.sh
+output.ppm
+image.ppm
