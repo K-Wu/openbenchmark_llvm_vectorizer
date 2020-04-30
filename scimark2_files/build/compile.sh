@@ -1,4 +1,4 @@
-rm -rf *.bc *.ll *.o *.s exe
+rm -rf *.bc *.ll *.o *.s
 
 srcs=( "scimark2.c" "FFT.c" "kernel.c" "Stopwatch.c" "Random.c" "SOR.c" "SparseCompRow.c" "array.c" "MonteCarlo.c" "LU.c" )
 
@@ -24,4 +24,8 @@ do
    llc ${filename::-3}.bc -O3 -o ${filename::-3}.s
    clang -c ${filename::-3}.s
 done
-clang *.o -lm -o exe -mno-relax-all
+if [ "$1" == "ours" ]; then
+  clang *.o -lm -o exe -mno-relax-all
+else
+  clang *.o -lm -o exe2 -mno-relax-all
+fi

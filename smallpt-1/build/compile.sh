@@ -1,4 +1,4 @@
-rm -rf *.bc *.ll *.o *.s exe
+rm -rf *.bc *.ll *.o *.s
 
 srcs=( "smallpt.cpp" )
 
@@ -24,4 +24,9 @@ do
    llc ${filename::-3}.bc -O3 -o ${filename::-3}.s
    clang++ -c ${filename::-3}.s
 done
-clang++ *.o -lm  -fopenmp -L/opt/intel/compilers_and_libraries_2020.1.217/linux/compiler/lib/intel64/libiomp5.so -o exe -mno-relax-all
+if [ "$1" == "ours" ]; then
+  clang++ *.o -lm  -fopenmp -L/opt/intel/compilers_and_libraries_2020.1.217/linux/compiler/lib/intel64/libiomp5.so -o exe -mno-relax-all
+else
+  clang++ *.o -lm  -fopenmp -L/opt/intel/compilers_and_libraries_2020.1.217/linux/compiler/lib/intel64/libiomp5.so -o exe2 -mno-relax-all
+fi
+

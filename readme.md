@@ -2,6 +2,12 @@
 
 This repo contains several tests from openbenchmark [1] for the purpose of benchmarking custom vectorization pass.
 
+## Commands
+Compile: 
+```
+bash scripts/compile_dir.sh c-ray-1.1 && bash scripts/compile_dir.sh himeno && bash scripts/compile_dir.sh scimark2_files/ && bash scripts/compile_dir.sh smallpt-1 && bash scripts/compile_dir.sh version1.0/omp
+```
+
 ## Usage
 Modify the `myPasses` in the compile.sh script in each benchmark build folder. Compile and run.
 

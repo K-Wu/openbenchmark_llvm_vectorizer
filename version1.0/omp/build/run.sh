@@ -1,1 +1,2 @@
-OMP_NUM_THREADS=16 ./exe 18
+OMP_NUM_THREADS=16 time ./exe 18
+OMP_NUM_THREADS=16 time ./exe2 18

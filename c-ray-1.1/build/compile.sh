@@ -1,4 +1,4 @@
-rm -rf *.bc *.ll *.o *.s exe
+rm -rf *.bc *.ll *.o *.s
 
 srcs=( "c-ray-mt.c" )
 
@@ -20,8 +20,12 @@ echo $passes
 #optimize all ll files
 for filename in $(ls | grep .ll)
 do
-   opt ${filename::-3}.ll $passes -o ${filename::-3}.bc
+   /home/cs526/llvm-8.0.1.src/build/bin/opt ${filename::-3}.ll $passes -o ${filename::-3}.bc
    llc ${filename::-3}.bc -O3 -o ${filename::-3}.s
    clang -c ${filename::-3}.s
 done
-clang *.o -lm -lpthread -o exe -mno-relax-all
+if [ "$1" == "ours" ]; then
+  clang *.o -lm -lpthread -o exe -mno-relax-all
+else
+  clang *.o -lm -lpthread -o exe2 -mno-relax-all
+fi

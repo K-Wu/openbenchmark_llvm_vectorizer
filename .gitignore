@@ -6,9 +6,13 @@
 *.o
 *.s
 exe
+exe2
 *.zip
+*.log
+
 mafft-7.392-without-extensions/
 hmmer-2.3.2/
 install_timedHmmerSearch.sh
 output.ppm
 image.ppm
+output2.ppm
