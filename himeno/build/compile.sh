@@ -5,7 +5,7 @@ srcs=( "himenobmtxpa.c" )
 # compile all source files
 for src in "${srcs[@]}"
 do
-  clang "../"$src -I../ -Xclang -disable-O0-optnone -fomit-frame-pointer -Xclang -vectorize-loops -Xclang -vectorize-slp -momit-leaf-frame-pointer -S -emit-llvm
+  clang "../"$src -I../ -Xclang -disable-O0-optnone -fomit-frame-pointer -momit-leaf-frame-pointer -S -emit-llvm
 done
 
 if [ "$1" == "ours" ]; then

@@ -5,7 +5,7 @@ srcs=( "smallpt.cpp" )
 # compile all source files
 for src in "${srcs[@]}"
 do
-  clang++ "../"$src -I../ -Wno-c++11-narrowing -fopenmp -I/opt/intel/compilers_and_libraries_2020.1.217/linux/compiler/include/omp.h  -Xclang -disable-O0-optnone -fomit-frame-pointer -Xclang -vectorize-loops -Xclang -vectorize-slp -momit-leaf-frame-pointer -S -emit-llvm
+  clang++ "../"$src -I../ -Wno-c++11-narrowing -fopenmp -I/opt/intel/compilers_and_libraries_2020.1.217/linux/compiler/include/omp.h  -Xclang -disable-O0-optnone -fomit-frame-pointer -momit-leaf-frame-pointer -S -emit-llvm
 done
 
 if [ "$1" == "ours" ]; then
